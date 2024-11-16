@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Book</title>
+    <style>
+        /* Add your CSS styles here */
+        .form-container {
+            width: 50%;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Update Book</h1>
+        <form th:action="@{/book/update/{id}(id=${book.id})}" method="post">
+            <label for="bname">Book Name</label>
+            <input type="text" id="bname" name="bname" th:value="${book.bname}" required />
+
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" th:value="${book.author}" required />
+
+            <label for="price">Price</label>
+            <input type="text" id="price" name="price" th:value="${book.price}" required />
+
+            <button type="submit">Update Book</button>
+        </form>
+    </div>
+</body>
+</html>
